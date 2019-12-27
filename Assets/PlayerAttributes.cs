@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerAttributes : MonoBehaviour
+[System.Serializable]
+
+public class PlayerAttributes : EntityAttributes
 {
     // public const float STARTING_HEALTH = 100;
     // public const float STARTING_MANA = 100;
@@ -10,12 +12,8 @@ public class PlayerAttributes : MonoBehaviour
     // public const float STARTING_EXP = 0;
     // public const float STARTING_EXP_CAP = 100;
 
-    [Header("Raw Stats")]
-    public float maxHealth;
     public float maxMana;
-    public float dmgExperimental;
     [Header("Level")]
-    public float level;
     public float exp;
     public float expCap;
     public float skillPoints;
@@ -27,7 +25,7 @@ public class PlayerAttributes : MonoBehaviour
     //     exp = STARTING_EXP;
     //     expCap = STARTING_EXP_CAP;
     // }
-    public void levelUp()
+    protected override void levelUp()
     {
         maxHealth += Mathf.Floor(maxHealth * 0.1f) + 50f;
         maxMana += Mathf.Floor(maxMana * 0.1f) + 50f;

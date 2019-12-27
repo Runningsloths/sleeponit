@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAttributes : MonoBehaviour
+[System.Serializable]
+
+public class EnemyAttributes : EntityAttributes
 {
-    public float maxHealth;
-    public float dmg;
+    protected override void levelUp()
+    {
+        maxHealth += Mathf.Floor(maxHealth * 0.1f) + 50f;
+        level++;
+    }
 }

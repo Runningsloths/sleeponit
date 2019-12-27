@@ -4,23 +4,22 @@ using UnityEngine;
 
 public class PlayerInteractions : MonoBehaviour
 {
-    public Rigidbody player;
-    
+    [Header("Melee Attack Attributes")]
+    public Rigidbody enemy;
     public float meleeAttackDistance;
-
+    
     private RaycastHit enemyDetected;
 
-    void Update()
+    void FixedUpdate()
     {
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out enemyDetected, meleeAttackDistance))
+        // Melee Attack Detection
+        CapsuleCollider playerCollider = gameObject.GetComponent<CapsuleCollider>();
+        Vector3 playerColliderCenter = playerCollider.transform.position;
+        playerColliderCenter.y += playerCollider.height/2f;
+        if (Physics.Raycast(playerColliderCenter, playerCollider.transform.forward, out enemyDetected, meleeAttackDistance))
         {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * enemyDetected.distance, Color.red);
-            Debug.Log("enemy hit");
+            Debug.Log(enemyDetected);
         }
-        else
-        {
-            Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
-            Debug.Log("not hit");
-        }
+        Debug.DrawRay(playerColliderCenter, playerCollider.transform.forward, Color.red);
     }
 }

@@ -130,9 +130,9 @@ GameObject:
   m_Component:
   - component: {fileID: 406196080}
   - component: {fileID: 406196079}
-  - component: {fileID: 406196078}
   - component: {fileID: 406196077}
   - component: {fileID: 406196081}
+  - component: {fileID: 406196078}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -219,8 +219,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e200af79648f2374783593fc5fa56930, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  dmg: 10
+  dmg: 0
+  maxHealth: 0
+  level: 0
 --- !u!1 &474316666
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,10 +532,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 807b08ebffb93324cbb4e523058d185c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dmg: 0
   maxHealth: 100
-  maxMana: 100
-  dmgExperimental: 10
   level: 1
+  maxMana: 100
   exp: 0
   expCap: 1000
   skillPoints: 1
@@ -550,7 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cef1061aef0cd844928f4d6b1c0e864, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 761445442}
+  enemy: {fileID: 406196077}
   meleeAttackDistance: 2
 --- !u!1 &787887834
 GameObject:
